@@ -1,0 +1,36 @@
+<ion-card>
+   <ion-card-header>
+     Event's Revenue:
+   <span
+  class="profitable"
+     [class.profitable]="currentEvent?.revenue > 0"
+     [class.noProfitable]="currentEvent?.revenue <= 0"
+    >
+     {{ currentEvent?.revenue | currency}}
+    </span>
+</ion-card-header>
+<ion-card-content>
+  <p>Ticket: <strong>{{ currentEvent?.price | currency }}</strong></p>
+  <p>Date: <strong> {{ currentEvent?.date | date }}</strong></p>
+</ion-card-content>
+</ion-card>
+<ion-card class="add-guest-form">
+   <ion-card-header> Add Guests </ion-card-header >
+     <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+           <ion-input
+            [(ngModel)]="guestName"
+            type="text"
+             placeholder="What's your guest's name?"
+>       </ion-input>
+        </ion-item>
+    <ion-button
+      (click)="addGuest(guestName)"
+       expand="block"
+       [disabled]="!guestName"
+       color="primary">
+        Add Guest
+   </ion-button>
+   </ion-card-content>
+</ion-card>

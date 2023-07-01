@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ song?.songName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3>Artist</h3>
+  <p>
+    The song {{ song?.songName }} was released by {{ song?.artistName }}
+  </p>
+  <h3>Album</h3>
+  <p>
+    It was part of the {{ song?.albumName }} album.
+  </p>
+  <h3>Description</h3>
+  <p>
+    {{ song?.songDescription }}
+  </p>
+  <ion-button (click)="deleteSong(song)" expand="block">
+    DELETE SONG
+  </ion-button>
+</ion-content>
